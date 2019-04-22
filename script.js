@@ -8,7 +8,7 @@ let rewindVid = document.querySelector(".rewind");
 ///EVENT LISTENERS///
 playButton.addEventListener("click", playFunction);
 vid.addEventListener('timeupdate', updateProgressBar, false);
-rewindVid.addEventListener('click', rewindVid);
+rewindVid.addEventListener('click', rewindVid); 
 
 //PLAY/PAUSE THE VIDEO///
 window.keydown(function(e) {
