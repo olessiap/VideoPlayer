@@ -3,12 +3,14 @@ let playButton = document.querySelector(".toggle");
 let vid = document.querySelector(".viewer");
 let progressBar = document.querySelector(".progress__filled");
 let progressStyle = window.getComputedStyle(progressBar);
-let rewindVid = document.querySelector(".rewind");
+let rewindVidButton = document.querySelector(".rewind");
+let skipVidButton = document.querySelector(".skip");
 
 ///EVENT LISTENERS///
 playButton.addEventListener("click", playFunction);
 vid.addEventListener('timeupdate', updateProgressBar, false);
-rewindVid.addEventListener('click', rewindVid); 
+rewindVidButton.addEventListener('click', handleRewindVid); 
+skipVidButton.addEventListener("click", handleSkipVid)
 
 //PLAY/PAUSE THE VIDEO///
 window.keydown(function(e) {
@@ -38,8 +40,12 @@ function updateProgressBar() {
 }
 
 //REWIND AND FASTFORWARD FUNCTIONALITY
-function rewindVid() {
+function handleRewindVid() {
     vid.currentTime = vid.currentTime - 10;
+}
+
+function handleSkipVid() {
+    vid.currentTime = vid.currentTime + 25;
 }
 
 
