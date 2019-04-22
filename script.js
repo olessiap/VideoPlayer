@@ -3,11 +3,12 @@ let playButton = document.querySelector(".toggle");
 let vid = document.querySelector(".viewer");
 let progressBar = document.querySelector(".progress__filled");
 let progressStyle = window.getComputedStyle(progressBar);
-
+let rewindVid = document.querySelector(".rewind");
 
 ///EVENT LISTENERS///
 playButton.addEventListener("click", playFunction);
 vid.addEventListener('timeupdate', updateProgressBar, false);
+rewindVid.addEventListener('click', rewindVid); 
 
 //PLAY/PAUSE THE VIDEO///
 window.keydown(function(e) {
@@ -25,7 +26,6 @@ function playFunction() {
     } else {
         vid.pause();
         playButton.innerHTML="►";
-        pauseProgressBar();
     }
 }
 
@@ -33,17 +33,18 @@ function playFunction() {
 function updateProgressBar() {
     progressBar.style.flexBasis = "0%";
     let percentage = Math.floor((100 / vid.duration) * vid.currentTime);
-    console.log(percentage);
     progressBar.style.flexBasis = percentage + "%";
+    console.log(vid.currentTime);
 }
 
-function pauseProgressBar() {
-    console.log("paused");
+//REWIND AND FASTFORWARD FUNCTIONALITY
+function rewindVid() {
+    vid.currentTime = vid.currentTime - 10;
 }
 
 
 //play/pause video by pressing play/pause button and space bar
 //track the video playing and update progress bar
-//click anywhere on progress bar to start video from there
 //skip forward/rewind back by 10 seconds  --> use currentTime = 10;
+//click anywhere on progress bar to start video from there
 //reset the player to 0 progress on refresh 
