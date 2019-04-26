@@ -38,16 +38,14 @@ function updateProgressBar() {
     progressBar.style.flexBasis = "0%";
     let percentage = Math.floor((100 / vid.duration) * vid.currentTime);
     progressBar.style.flexBasis = percentage + "%";
-    console.log(vid.currentTime);
 }
 
 
 function handleClickOnProgressBar(e) {
     let x = e.pageX - 400;
     let xPercent = Math.floor((100 / 640) * x);
-    console.log(xPercent);
     progressBar.style.flexBasis = xPercent + "%";
-   // vid.currentTime 
+    vid.currentTime = (xPercent / 100 ) * vid.duration;
 }
 
 //REWIND AND FASTFORWARD FUNCTIONALITY
