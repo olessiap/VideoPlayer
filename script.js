@@ -10,13 +10,14 @@ let skipVidButton = document.querySelector(".skip");
 ///EVENT LISTENERS///
 playButton.addEventListener("click", handlePlay);
 vid.addEventListener('timeupdate', updateProgressBar, false);
+vid.addEventListener("click", handlePlay);
 wholeProgressBar.addEventListener('click', handleClickOnProgressBar);
 rewindVidButton.addEventListener('click', handleRewindVid); 
 skipVidButton.addEventListener("click", handleSkipVid)
 
 //PLAY/PAUSE THE VIDEO///
 window.keydown(function(e) {
-    if(e.key === " " || e.key ==="Spacebar") {
+    if(e.key === " " || e.key === "Spacebar") {
         e.preventDefault();
         handlePlay();
     }
